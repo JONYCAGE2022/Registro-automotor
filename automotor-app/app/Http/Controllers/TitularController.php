@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Titulares;
 use Illuminate\Http\Request;
 
 class TitularController extends Controller
@@ -11,7 +12,8 @@ class TitularController extends Controller
      */
     public function index()
     {
-        return view('lista.lista-titular');
+        $titulares = Titulares::orderBy("created_at","desc")->paginate(10);
+        return view('lista.lista-titular',['titulares' => $titulares]);
     }
 
     /**

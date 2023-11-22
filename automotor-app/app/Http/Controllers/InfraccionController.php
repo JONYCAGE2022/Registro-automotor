@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Infracciones;
 use Illuminate\Http\Request;
 
 class InfraccionController extends Controller
@@ -11,7 +12,9 @@ class InfraccionController extends Controller
      */
     public function index()
     {
-        return view('lista.lista-infraccion');
+        //$infraccciones = Infracciones::orderBy("created_at","desc")->paginate(10);
+        $infraccciones = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos") ->orderBy("created_at","desc") ->paginate(10);
+        return view('lista.lista-infraccion',['infraccciones' => $infraccciones]);
     }
 
     /**

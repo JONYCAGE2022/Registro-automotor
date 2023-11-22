@@ -1,8 +1,9 @@
 <?php
 
-App\Controller
+
 namespace App\Http\Controllers;
 
+use App\Models\Auto;
 use Illuminate\Http\Request;
 
 class AutoController extends Controller
@@ -12,7 +13,7 @@ class AutoController extends Controller
      */
     public function index()
     {
-        $autos = Auto::orderBy("marca")->paginate(10);
+        $autos = Auto::join('titulares','titulares.id','=','autos.titular_id') ->selectRaw("autos.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->orderBy("created_at","desc") ->paginate(10);
         return view('lista.lista-automotor',['autos' => $autos]);
     }
 

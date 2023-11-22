@@ -27,7 +27,7 @@ Route::get('/', function () {
 })->name('Home');
 
 //Lista de automotores
-Route::get('/automotores{marca}',[AutoController::class,'Index'])->name('ListaAutomotor');
+Route::get('/automotores',[AutoController::class,'Index'])->name('ListaAutomotor');
 
 //Lista de titulares
 Route::get('/titulares',[TitularController::class,'Index'])->name('ListaTitular');

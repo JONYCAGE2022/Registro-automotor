@@ -36,16 +36,16 @@
                     <a class="navbar-brand" href="#"><img src="img/logo.png" width="50"
                             alt="Logo de la página web" class="img-fluid"></a>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('Home')}}">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('ListaAutomotor')}}">Automotores</a>
+                        <a class="nav-link" href="{{ route('ListaAutomotor') }}">Automotores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('ListaTitular')}}">Titulares</a>
+                        <a class="nav-link" href="{{ route('ListaTitular') }}">Titulares</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('ListaInfraccion')}}">Infraciones</a>
+                        <a class="nav-link" href="{{ route('ListaInfraccion') }}">Infraciones</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -55,7 +55,16 @@
             </div>
         </div>
     </nav>
-    @yield('contenido')
+    {{-- Sección Principal --}}
+    <section class="Principal">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col">
+                    @yield('contenido')
+                </div>
+            </div>
+        </div>
+    </section>
     {{-- Pie de página --}}
     <footer class="bg-dark text-white p-4 fixed-bottom">
         <div class="container-fluid text-center">
