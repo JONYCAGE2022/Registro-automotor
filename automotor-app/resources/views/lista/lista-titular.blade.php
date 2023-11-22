@@ -1,26 +1,29 @@
 @extends('layouts.plantilla')
-@section('titulo', 'Pantalla principal')
+@section('titulo', 'Lista titular')
 @section('contenido')
     <h1>Lista titular</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Apellido</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Domicilio</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($titulares as $titular)
-                <tr>
-                    <td>{{ $titular->apellido }}</td>
-                    <td>{{ $titular->nombre }}</td>
-                    <td>{{ $titular->dni }}</td>
-                    <td>{{ $titular->domicilio }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    {{ $titulares->links() }}
-@endsection
+
+    <div class="container d-flex justify-content-center">
+        <div class="mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre y apellido</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($titulares as $titular)
+                        <tr>
+                            <td>{{ $titular->nombre_titular }}</td>
+                            <td>{{ $titular->dni }}</td>
+                            <td><button type="button" class="btn btn-info" type="submit" onclick="window.location.href= '{{route('DetalleTitular',$titular->id)}}'">Ver</button></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div 
+{{-- Navigator --}} 
+{{ $titulares->links('pagination::bootstrap-5') }} @endsection

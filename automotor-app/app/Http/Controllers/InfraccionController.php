@@ -13,8 +13,8 @@ class InfraccionController extends Controller
     public function index()
     {
         //$infraccciones = Infracciones::orderBy("created_at","desc")->paginate(10);
-        $infraccciones = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos") ->orderBy("created_at","desc") ->paginate(10);
-        return view('lista.lista-infraccion',['infraccciones' => $infraccciones]);
+        $infracciones = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos") ->orderBy("created_at","desc") ->paginate(10);
+        return view('lista.lista-infraccion',['infracciones' => $infracciones]);
     }
 
     /**
@@ -36,9 +36,10 @@ class InfraccionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $detalleInfraccion = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos") ->where('infracciones.id','=',$id) ->orderBy("created_at","desc")->first();
+        return view('detalle.detalle-infraccion',['detalleInfraccion' => $detalleInfraccion]);
     }
 
     /**

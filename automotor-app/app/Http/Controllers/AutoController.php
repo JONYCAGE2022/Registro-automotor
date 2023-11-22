@@ -36,9 +36,10 @@ class AutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $detalleAuto = Auto::join('titulares','titulares.id','=','autos.titular_id') ->selectRaw("autos.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->where('autos.id','=',$id) ->orderBy("created_at","desc")->first();
+        return view('detalle.detalle-automotor',['detalleAuto' => $detalleAuto]);
     }
 
     /**

@@ -12,7 +12,7 @@ class TitularController extends Controller
      */
     public function index()
     {
-        $titulares = Titulares::orderBy("created_at","desc")->paginate(10);
+        $titulares = Titulares::selectRaw("titulares.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->orderBy("created_at","desc") ->paginate(10);
         return view('lista.lista-titular',['titulares' => $titulares]);
     }
 
@@ -35,9 +35,10 @@ class TitularController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $detalleTitular = Titulares::selectRaw("titulares.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->where('titulares.id','=',$id) ->orderBy("created_at","desc")->first();
+        return view('detalle.detalle-titular',['detalleTitular' => $detalleTitular]);
     }
 
     /**
