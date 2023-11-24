@@ -33,8 +33,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <a class="navbar-brand" href="{{ route('Home') }}"><img src="{{asset("img/logo.png")}}" width="50"
-                            alt="Logo de la página web" class="img-fluid"></a>
+                    <a class="navbar-brand" href="{{ route('Home') }}"><img src="{{ asset('img/logo.png') }}"
+                            width="50" alt="Logo de la página web" class="img-fluid"></a>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">Inicio</a>
                     </li>
@@ -46,6 +46,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('ListaInfraccion') }}">Infraciones</a>
+                    </li>
+                    <li class="nav-item"> 
+                        <a class="btn btn-outline-light" href="{{ route('dashboard') }}">Iniciar sesión</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

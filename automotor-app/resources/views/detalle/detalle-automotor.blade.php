@@ -25,6 +25,6 @@
             </table>
         </div>
     </div>
-    <button class="btn btn-secondary" onclick="window.location.href= '{{ route('ListaInfraccion') }}'"
+    <button class="btn btn-secondary" onclick="window.location.href= '{{ route('ListaAutomotor') }}'"
         type="submit">Volver</button>
 @endsection

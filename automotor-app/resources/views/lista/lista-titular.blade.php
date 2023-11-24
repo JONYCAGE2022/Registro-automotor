@@ -24,6 +24,6 @@
                 </tbody>
             </table>
         </div>
-    </div 
+    </div> 
 {{-- Navigator --}} 
 {{ $titulares->links('pagination::bootstrap-5') }} @endsection

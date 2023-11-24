@@ -12,7 +12,6 @@ class InfraccionController extends Controller
      */
     public function index()
     {
-        //$infraccciones = Infracciones::orderBy("created_at","desc")->paginate(10);
         $infracciones = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos") ->orderBy("created_at","desc") ->paginate(10);
         return view('lista.lista-infraccion',['infracciones' => $infracciones]);
     }
