@@ -45,7 +45,7 @@
                                             </button>
                                             <button type="button"
                                                 class="bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-400 active:bg-yellow-700 text-white font-bold py-1 px-2 m-1 rounded"
-                                                onclick="window.location.href= '{{ route('EditarAutomotor', $auto->id) }}'">Editar
+                                                onclick="window.location.href= '{{ route('EditarAutomotor', $auto) }}'">Editar
                                             </button>
                                             <form action="{{ route('EliminarAutomotor', $auto->id) }}" method="POST">
                                                 @csrf

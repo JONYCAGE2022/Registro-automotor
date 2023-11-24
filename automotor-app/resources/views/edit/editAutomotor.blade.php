@@ -18,39 +18,49 @@
                                         Nombre y apellido del titular
                                     </th>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        {{ $detalleAuto->nombre_titular??'Sin nombre' }}
+                                        {{ $detalleAuto ? $detalleAuto->nombre_titular : '' }}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
-                                        Patente
-                                    </th>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <input
-                                            class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            name="patente" type="text" value="{{ $detalleAuto->patente }}">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
-                                        Marca
-                                    </th>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <input
-                                            class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            type="text" value="{{ $detalleAuto->marca }}">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
-                                        Modelo
-                                    </th>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <input
-                                            class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            type="text" value="{{ $detalleAuto->modelo }}">
-                                    </td>
-                                </tr>
+                                <form action="{{ route('ActualizarAutomotor', $detalleAuto->id) }}" method="POST">
+                                    <tr>
+                                        <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                            Patente
+                                        </th>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            <input
+                                                class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
+                                                name="patente" type="text"
+                                                value="{{ $detalleAuto ? $detalleAuto->patente : '' }}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                            Marca
+                                        </th>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            <input
+                                                class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
+                                                name="marca" type="text" value="{{ $detalleAuto ? $detalleAuto->marca : '' }}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                            Modelo
+                                        </th>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            <input
+                                                class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
+                                                name="modelo" type="text" value="{{ $detalleAuto ? $detalleAuto->modelo : '' }}">
+                                        </td>
+                                    </tr>
+                                    @csrf
+                                    @method('PUT')
+                                    <button
+                                        class="bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded"
+                                        type="submit">
+                                        Guardar
+                                    </button>
+                                </form>
                             </table>
                         </div>
                     </div>
@@ -61,15 +71,6 @@
                 onclick="window.location.href= '{{ route('ListaAdminAutomotor') }}'" type="submit">
                 Volver
             </button>
-            <form action="{{'ActualizarAutomotor',$detalleAuto->id}}" method="PUT">
-                @csrf
-                @method('PUT')
-                <button
-                    class="bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded"
-                    type="submit">
-                    Guardar
-                </button>
-            </form>
         </div>
     </div>
 

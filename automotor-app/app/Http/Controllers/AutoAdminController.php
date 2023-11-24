@@ -53,13 +53,14 @@ class AutoAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $automotor = Auto::find($id);
+        dump($automotor);
         $automotor->update([
+            'patente' => $request->patente,
             'marca' => $request->marca,
-            'modelo' => $request->modelo,
-            'patente' => $request->patente
+            'modelo' => $request->modelo
         ]);
         return redirect()->route('ListaAdminAutomotor')->with('success', 'Automotor actualizado con éxito');
     }
