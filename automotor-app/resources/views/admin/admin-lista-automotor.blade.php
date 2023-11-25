@@ -47,6 +47,9 @@
                                                 class="bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-400 active:bg-yellow-700 text-white font-bold py-1 px-2 m-1 rounded"
                                                 onclick="window.location.href= '{{ route('EditarAutomotor', $auto) }}'">Editar
                                             </button>
+                                            <button type="submit" class="bg-green-500 hover:bg-green-600 focus:bg-green-400 active:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded" onclick="window.location.href= '{{ route('NuevoAutomotor') }}'">
+                                                Nuevo registro
+                                            </button>
                                             <form action="{{ route('EliminarAutomotor', $auto->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -56,6 +59,9 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    {{-- <button type="submit" class="bg-green-500 hover:bg-green-600 focus:bg-green-400 active:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded" onclick="window.location.href= '{{ route('NuevoAutomotor') }}'">
+                                        Nuevo registro
+                                    </button> --}}
                                 @endforeach
                             </tbody>
                         </table>

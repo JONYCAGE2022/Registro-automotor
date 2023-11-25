@@ -21,7 +21,7 @@ class AutoAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('nuevos_registros.nuevo-registro-automotor');
     }
 
     /**

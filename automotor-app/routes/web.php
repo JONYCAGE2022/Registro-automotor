@@ -49,6 +49,10 @@ Route::controller(AutoAdminController::class)->group(function () {
     Route::get('dashboard/automotores/editar/{id}',[AutoAdminController::class, 'edit'])->name('EditarAutomotor');
     //Actualizar automotor
     Route::put('dashboard/automotores/editar/{id}',[AutoAdminController::class, 'update'])->name('ActualizarAutomotor');
+    //Nuevo registro
+    Route::get('dashboard/automotores/nuevo',[AutoAdminController::class, 'create'])->name('NuevoAutomotor');
+    //Guardar nuevo registro
+    //Route::put('dashboard/automotores/nuevo/{id}',[AutoAdminController::class, 'store'])->name('GuardarNuevoAutomotor');
 });
 
 //Titulares sin que el usuario se autentique
