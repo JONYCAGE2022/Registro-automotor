@@ -14,21 +14,36 @@
                         <div class="mx-auto">
                             <table class="table-auto table-striped border border-gray-300 shadow-lg">
                                 <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">Nombre y apellido del titular
+                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                        Nombre y apellido del titular
                                     </th>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detalleAuto->nombre_titular }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        {{ $detalleAuto ? $detalleAuto->nombre_titular : '' }}
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">Patente</th>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detalleAuto->patente }}</td>
+                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                        Patente
+                                    </th>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        {{ $detalleAuto ? $detalleAuto->patente : '' }}
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">Marca</th>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detalleAuto->marca }}</td>
+                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                        Marca
+                                    </th>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        {{ $detalleAuto ? $detalleAuto->marca : ''}}
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">Modelo</th>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detalleAuto->modelo }}</td>
+                                    <th class="border bg-gray-100 border-gray-300 px-4 py-2 text-left">
+                                        Modelo
+                                    </th>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        {{ $detalleAuto ? $detalleAuto->modelo : '' }}
+                                    </td>
                                 </tr>
                             </table>
                         </div>

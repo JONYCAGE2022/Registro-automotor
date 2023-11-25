@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Auto extends Model
 {
     use HasFactory;
-    protected $fillable = ['patente', 'marca', 'modelo'];
+    protected $fillable = ['titular_id','patente', 'marca', 'modelo','tipo'];
 }

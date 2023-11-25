@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auto;
+use App\Models\Titulares;
 use Illuminate\Http\Request;
 
 class AutoAdminController extends Controller
@@ -21,7 +22,9 @@ class AutoAdminController extends Controller
      */
     public function create()
     {
-        return view('nuevos_registros.nuevo-registro-automotor');
+        $datosIitular = Titulares::selectRaw("titulares.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular")->get();
+        $tipoAutomotor = Auto::selectRaw("autos.tipo")->distinct()->get();
+        return view('nuevos.automotor',['datosIitular' => $datosIitular , 'tipoAutomotor' => $tipoAutomotor]);
     }
 
     /**
@@ -29,7 +32,14 @@ class AutoAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auto::create([
+            'titular_id' => $request->titular_id,
+            'marca' => $request->marca,
+            'modelo' => $request->modelo,
+            'patente' => $request->patente,
+            'tipo' => $request->tipo
+        ]);
+        return redirect()->route('ListaAdminAutomotor');
     }
 
     /**
