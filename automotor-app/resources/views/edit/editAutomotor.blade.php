@@ -61,11 +61,13 @@
                                         </td>
                                     </tr>                                   
                                 </table>
-                                <button
+                                <div class="py-3">
+                                    <button
                                         class="bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded"
                                         type="submit">
                                         Guardar
-                                    </button>
+                                </button>
+                                </div>
                             </form>
                         </div>
                     </div>

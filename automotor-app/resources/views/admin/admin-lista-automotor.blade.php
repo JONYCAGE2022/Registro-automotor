@@ -15,15 +15,15 @@
         <!-- Borrar el mensaje de éxito de la sesión -->
         {{ session()->forget('success') }}
         @endif --}}
-    <div>
+    <div class="py-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <button type="submit"
-        class="bg-green-500 hover:bg-green-600 focus:bg-green-400 active:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded"
-        onclick="window.location.href= '{{ route('FormularioAutomotor') }}'">
-        Nuevo registro
-    </button>
+            class="bg-green-500 hover:bg-green-600 focus:bg-green-400 active:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded"
+            onclick="window.location.href= '{{ route('FormularioAutomotor') }}'">
+            Nuevo registro
+        </button>
     </div>
 
-    <div class="py-12">
+    <div class="py-1">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -44,11 +44,15 @@
                                 <tbody>
                                     @foreach ($autos as $auto)
                                         <tr>
-                                            <td class="border border-gray-300 px-4 py-2">{{ $auto->nombre_titular }}
-                                            </td>
-                                            <td class="border border-gray-300 px-4 py-2">{{ $auto->patente }}</td>
                                             <td class="border border-gray-300 px-4 py-2">
-                                                <button type="submit"
+                                                {{ $auto->nombre_titular }}
+                                            </td>
+                                            <td class="border border-gray-300 px-4 py-2">
+                                                {{ $auto->patente }}
+                                            </td>
+                                            <td class="border border-gray-300 px-4 py-2">
+                                                <div class="flex">
+                                                    <button type="submit"
                                                     class="bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded"
                                                     onclick="window.location.href= '{{ route('DetalleAdminAutomotor', $auto->id) }}'">Ver
                                                 </button>
@@ -64,6 +68,7 @@
                                                         class="bg-red-500 hover:bg-red-600 focus:bg-red-400 active:bg-red-700 text-white font-bold py-1 px-2 m-1 rounded">Eliminar
                                                     </button>
                                                 </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -73,7 +78,7 @@
                     </div>
                 </div>
                 {{-- Navigator --}}
-                <div class="container mx-auto">
+                <div class="flex justify-center">
                     {{ $autos->links('pagination::simple-tailwind') }}
                 </div>
             </div>
