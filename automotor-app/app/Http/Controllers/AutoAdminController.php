@@ -57,7 +57,8 @@ class AutoAdminController extends Controller
     public function edit($id)
     {
         $detalleAuto = Auto::join('titulares','titulares.id','=','autos.titular_id') ->selectRaw("autos.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->where('autos.id','=',$id) ->orderBy("created_at","desc")->first();
-        return view('edit.editAutomotor',['detalleAuto' => $detalleAuto]);
+        $tipoAutomotor = Auto::selectRaw("autos.tipo")->distinct()->where('autos.tipo','<>',$detalleAuto->tipo) ->get();
+        return view('edit.editAutomotor',['detalleAuto' => $detalleAuto , 'tipoAutomotor' => $tipoAutomotor]);
     }
 
     /**
@@ -66,11 +67,11 @@ class AutoAdminController extends Controller
     public function update(Request $request, $id)
     {
         $automotor = Auto::find($id);
-        dump($automotor);
         $automotor->update([
             'patente' => $request->patente,
             'marca' => $request->marca,
-            'modelo' => $request->modelo
+            'modelo' => $request->modelo,
+            'tipo' => $request->tipo
         ]);
         return redirect()->route('ListaAdminAutomotor')->with('success', 'Automotor actualizado con éxito');
     }

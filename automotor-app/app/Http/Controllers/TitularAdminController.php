@@ -21,7 +21,7 @@ class TitularAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view ('nuevos.titular');
     }
 
     /**
@@ -29,7 +29,13 @@ class TitularAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Titulares::create([
+            'apellido' => $request->apellido,
+            'nombre' => $request->nombre,
+            'dni' => $request->dni,
+            'domicilio' => $request->domicilio,
+        ]);
+        return redirect()->route('ListaAdminTitular')->with('success', 'Titular cargado con éxito');;
     }
 
     /**
@@ -44,24 +50,34 @@ class TitularAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $detalleTitular = Titulares::selectRaw("titulares.*") ->where('titulares.id','=',$id) ->orderBy("created_at","desc")->first();
+        return view('edit.editTitular',['detalleTitular' => $detalleTitular]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $automotor = Titulares::find($id);
+        $automotor->update([
+            'apellido' => $request->apellido,
+            'nombre' => $request->nombre,
+            'dni' => $request->dni,
+            'domicilio' => $request->domicilio
+        ]);
+        return redirect()->route('ListaAdminTitular')->with('success', 'Titular actualizado con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $titular = Titulares::find($id);
+        $titular->delete();
+        return redirect()->route('ListaAdminTitular')->with('success', 'Titular eliminado con éxito');
     }
 }

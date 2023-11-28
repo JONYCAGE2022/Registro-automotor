@@ -26,8 +26,9 @@
         </div>
     </div>
 
-
     {{-- Navigator --}}
-    {{ $autos->links('pagination::bootstrap-5') }}
+    <div class="container" id="nav">
+        {{ $autos->links('pagination::bootstrap-5') }}
+    </div>
 
 @endsection

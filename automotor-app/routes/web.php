@@ -44,15 +44,15 @@ Route::controller(AutoAdminController::class)->group(function () {
     //Detalle del automotor
     Route::get('dashboard/automotores/{id}', [AutoAdminController::class, 'show'])->name('DetalleAdminAutomotor');
     //Eliminar automotor
-    Route::delete('dashboard/automotores/{id}',[AutoAdminController::class, 'destroy'])->name('EliminarAutomotor');
+    Route::delete('dashboard/automotores/{id}', [AutoAdminController::class, 'destroy'])->name('EliminarAutomotor');
     //Editar automotor
-    Route::get('dashboard/automotores/editar/{id}',[AutoAdminController::class, 'edit'])->name('EditarAutomotor');
+    Route::get('dashboard/automotores/editar/{id}', [AutoAdminController::class, 'edit'])->name('EditarAutomotor');
     //Actualizar automotor
-    Route::put('dashboard/automotores/editar/{id}',[AutoAdminController::class, 'update'])->name('ActualizarAutomotor');
+    Route::put('dashboard/automotores/editar/{id}', [AutoAdminController::class, 'update'])->name('ActualizarAutomotor');
     //Nuevo registro
-    Route::get('dashboard/automotores/nuevo/formulario',[AutoAdminController::class, 'create'])->name('FormularioAutomotor');
+    Route::get('dashboard/automotores/nuevo/formulario', [AutoAdminController::class, 'create'])->name('FormularioAutomotor');
     //Guardar nuevo registro
-    Route::post('dashboard/automotores/guardar/formulario',[AutoAdminController::class, 'store'])->name('GuardarNuevoAutomotor');
+    Route::post('dashboard/automotores/guardar/formulario', [AutoAdminController::class, 'store'])->name('GuardarNuevoAutomotor');
 });
 
 //Titulares sin que el usuario se autentique
@@ -64,9 +64,22 @@ Route::controller(TitularController::class)->group(function () {
 });
 
 //Titulares usuario autentificado
-//Lista de titulares
-Route::get('dashboard/titulares', [TitularAdminController::class, 'Index'])->name('ListaAdminTitular');
-Route::get('dashboard/titulares/{id}', [TitularAdminController::class, 'show'])->name('DetalleAdminTitulares');
+Route::controller(TitularAdminController::class)->group(function () {
+    //Lista de titulares
+    Route::get('dashboard/titulares', [TitularAdminController::class, 'Index'])->name('ListaAdminTitular');
+    //Detalle del titular
+    Route::get('dashboard/titulares/{id}', [TitularAdminController::class, 'show'])->name('DetalleAdminTitulares');
+    //Eliminar titular
+    Route::delete('dashboard/titulares/{id}', [TitularAdminController::class, 'destroy'])->name('EliminarTitular');
+    //Editar titular
+    Route::get('dashboard/titulares/editar/{id}', [TitularAdminController::class, 'edit'])->name('EditarTitular');
+    //Actualizar titular
+    Route::put('dashboard/titulares/editar/{id}', [TitularAdminController::class, 'update'])->name('ActualizarTitular');
+    //Nuevo registro
+    Route::get('dashboard/titulares/nuevo/formulario', [TitularAdminController::class, 'create'])->name('FormularioTitular');
+    //Guardar nuevo registro
+    Route::post('dashboard/titulares/guardar/formulario', [TitularAdminController::class, 'store'])->name('GuardarNuevoTitular');
+});
 
 //Infracciones
 Route::controller(TitularController::class)->group(function () {
@@ -77,9 +90,18 @@ Route::controller(TitularController::class)->group(function () {
 });
 
 //Infracciones usuario autentificado
-//Lista de infracciones
-Route::get('dashboard/infraccion', [InfraccionAdminController::class, 'Index'])->name('ListaAdminInfraccion');
-Route::get('dashboard/infraccion/{id}', [InfraccionAdminController::class, 'show'])->name('DetalleAdminInfraccion');
+Route::controller(TitularAdminController::class)->group(function () {
+    //Lista de infracciones
+    Route::get('dashboard/infraccion', [InfraccionAdminController::class, 'Index'])->name('ListaAdminInfraccion');
+    //Detalle de la infracción
+    Route::get('dashboard/infraccion/{id}', [InfraccionAdminController::class, 'show'])->name('DetalleAdminInfraccion');
+    //Eliminar infracción
+    Route::delete('dashboard/infraccion/{id}', [InfraccionAdminController::class, 'destroy'])->name('EliminarInfraccion');
+    //Nueva infracción
+    Route::get('dashboard/infraccion/nuevo/formulario', [InfraccionAdminController::class, 'create'])->name('FormularioInfraccion');
+    //Gurdar nuevo registro
+    Route::post('dashboard/infraccion/guardar/formulario', [InfraccionAdminController::class, 'store'])->name('GuardarNuevaInfraccion');
+});
 
 //Autenticación
 Route::get('/dashboard', function () {

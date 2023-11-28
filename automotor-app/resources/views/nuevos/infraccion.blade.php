@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Automotor') }}
+            {{ __('Infracción') }}
         </h2>
     </x-slot>
 
@@ -10,25 +10,24 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1 class="font-semibold text-lg text-gray-800 leading-tight">
-                        {{ __('Nuevo automotor') }}
+                        {{ __('Nueva Infracción') }}
                     </h1>
                     <div class="container mx-autos">
-                        <form action="{{ route('GuardarNuevoAutomotor') }}" method="POST">
+                        <form action="{{ route('GuardarNuevaInfraccion') }}" method="POST">
                             @csrf
                             @method('POST')
                             <table class="table-auto table-striped bordr border-gray-300 shadow-lg">
                                 <tr>
                                     <th class="border bg-gray-100 border-gray-300 px-4 py2 text-left">
-                                        Nombre y apellido del titular
+                                        Auto: tipo/patente
                                     </th>
-
                                     <td class="border border-gray-300 px-4 py-2">
                                         <select
                                             class="rounded-lg border border-gray-300 px-9 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            name="titular_id">
-                                            @foreach ($datosIitular as $titular)
-                                                <option value="{{ $titular->id }}"> 
-                                                    {{ $titular->nombre_titular }}
+                                            name="auto_id">
+                                            @foreach ($datosAuto as $auto)
+                                                <option value="{{ $auto->id }}"> 
+                                                    {{ $auto->datos_auto }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -36,32 +35,22 @@
                                 </tr>
                                 <tr>
                                     <th class="border bg-gray-100 border-gray-300 px-4 py2 text-left">
-                                        Patente
+                                        Fecha
                                     </th>
                                     <td class="border border-gray-300 px-4 py-2">
                                         <input
                                             class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            type="text" name="patente">
+                                            type="date" name="fecha">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="border bg-gray-100 border-gray-300 px-4 py2 text-left">
-                                        Marca
+                                        Descripción
                                     </th>
                                     <td class="border border-gray-300 px-4 py-2">
                                         <input
                                             class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            type="text" name="marca">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="border bg-gray-100 border-gray-300 px-4 py2 text-left">
-                                        Modelo
-                                    </th>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <input
-                                            class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
-                                            type="text" name="modelo">
+                                            type="text" name="descripcion">
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,9 +61,9 @@
                                         <select
                                             class="rounded-lg border border-gray-300 px-9 py-2 focus:outline-none focus:ring-indigo-500 placeholder-gray-400"
                                             name="tipo">
-                                            @foreach ($tipoAutomotor as $tpo)
-                                                <option value="{{ $tpo->tipo }}"> 
-                                                    {{ $tpo->tipo }}
+                                            @foreach ($tipoInfraccion as $infraccion)
+                                                <option value="{{ $infraccion->tipo }}"> 
+                                                    {{ $infraccion->tipo }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -93,10 +82,11 @@
             </div>
             <button
                 class="bg-gray-500 hover:bg-gray-600 focus:bg-gray-400 active:bg-gray-700 text-white font-bold py-1 px-2 m-1 rounded"
-                onclick="window.location.href= '{{ route('ListaAdminAutomotor') }}'" type="submit">
+                onclick="window.location.href= '{{ route('ListaAdminInfraccion') }}'" type="submit">
                 Volver
             </button>
         </div>
     </div>
 
 </x-app-layout>
+

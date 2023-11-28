@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Infracciones extends Model
 {
     use HasFactory;
+    protected $fillable = ['auto_id','fecha', 'desripcion', 'tipo'];
 }

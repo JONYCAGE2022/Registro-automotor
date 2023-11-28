@@ -3,3 +3,7 @@ h1 {
     font-family: 'Oswald', sans-serif;
     font-family: 'Vina Sans', sans-serif;
 }
+
+#nav {
+    margin-bottom: 100px; /* Ajusta el valor según sea necesario */
+}

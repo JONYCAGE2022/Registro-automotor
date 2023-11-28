@@ -31,56 +31,62 @@
                         {{ __('Lista automotor') }}
                     </h1>
                     <div class="container mx-auto">
-                        <div class="mx-auto">
-                            <table class="table-auto border border-gray-300 shadow-lg">
-                                <thead>
-                                    <tr class="bg-gray-100">
-                                        <th class="border border-gray-300 px-4 py-2 text-left">Nombre y apellido del
-                                            titular</th>
-                                        <th class="border border-gray-300 px-4 py-2 text-left">Patente</th>
-                                        <th class="border border-gray-300 px-4 py-2 text-left">Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($autos as $auto)
-                                        <tr>
-                                            <td class="border border-gray-300 px-4 py-2">
-                                                {{ $auto->nombre_titular }}
-                                            </td>
-                                            <td class="border border-gray-300 px-4 py-2">
-                                                {{ $auto->patente }}
-                                            </td>
-                                            <td class="border border-gray-300 px-4 py-2">
-                                                <div class="flex">
-                                                    <button type="submit"
+                        <table class="table-auto border border-gray-300 shadow-lg">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border border-gray-300 px-4 py-2 text-left">
+                                        Nombre y apellido del titular
+                                    </th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">
+                                        Patente
+                                    </th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">
+                                        Acción
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($autos as $auto)
+                                    <tr>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            {{ $auto->nombre_titular }}
+                                        </td>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            {{ $auto->patente }}
+                                        </td>
+                                        <td class="border border-gray-300 px-4 py-2">
+                                            <div class="flex">
+                                                <button type="submit"
                                                     class="bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded"
-                                                    onclick="window.location.href= '{{ route('DetalleAdminAutomotor', $auto->id) }}'">Ver
+                                                    onclick="window.location.href= '{{ route('DetalleAdminAutomotor', $auto->id) }}'">
+                                                    Ver
                                                 </button>
                                                 <button type="submit"
                                                     class="bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-400 active:bg-yellow-700 text-white font-bold py-1 px-2 m-1 rounded"
-                                                    onclick="window.location.href= '{{ route('EditarAutomotor', $auto) }}'">Editar
+                                                    onclick="window.location.href= '{{ route('EditarAutomotor', $auto) }}'">
+                                                    Editar
                                                 </button>
                                                 <form action="{{ route('EliminarAutomotor', $auto->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        class="bg-red-500 hover:bg-red-600 focus:bg-red-400 active:bg-red-700 text-white font-bold py-1 px-2 m-1 rounded">Eliminar
+                                                        class="bg-red-500 hover:bg-red-600 focus:bg-red-400 active:bg-red-700 text-white font-bold py-1 px-2 m-1 rounded">
+                                                        Eliminar
                                                     </button>
                                                 </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                {{-- Navigator --}}
-                <div class="flex justify-center">
-                    {{ $autos->links('pagination::simple-tailwind') }}
-                </div>
+            </div>
+            {{-- Navigator --}}
+            <div class="flex justify-center">
+                {{ $autos->links('pagination::simple-tailwind') }}
             </div>
         </div>
     </div>

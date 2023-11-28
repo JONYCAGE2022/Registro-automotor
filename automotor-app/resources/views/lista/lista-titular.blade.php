@@ -26,4 +26,7 @@
         </div>
     </div> 
 {{-- Navigator --}} 
-{{ $titulares->links('pagination::bootstrap-5') }} @endsection
+<div class="container" id="nav">
+    {{ $titulares->links('pagination::bootstrap-5') }} 
+</div>
+@endsection

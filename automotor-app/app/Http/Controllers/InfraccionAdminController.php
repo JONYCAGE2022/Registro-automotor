@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Infracciones;
+use App\Models\Auto;
 use Illuminate\Http\Request;
 
 class InfraccionAdminController extends Controller
@@ -21,7 +22,9 @@ class InfraccionAdminController extends Controller
      */
     public function create()
     {
-        //
+        $datosAuto = Auto::selectRaw("autos.*, CONCAT(autos.tipo,' ', autos.patente) as datos_auto")->distinct()->get();
+        $tipoInfraccion = Infracciones::selectRaw("infracciones.tipo")->distinct()->get();
+        return view('nuevos.infraccion',['datosAuto' => $datosAuto , 'tipoInfraccion' => $tipoInfraccion]);
     }
 
     /**
@@ -29,7 +32,13 @@ class InfraccionAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Infracciones::create([
+            'auto_id' => $request->auto_id,
+            'fecha' => $request->fecha,
+            'desripcion' => $request->descripcion,
+            'tipo' => $request->tipo,
+        ]);
+        return redirect()->route('ListaAdminInfraccion');
     }
 
     /**
@@ -60,8 +69,10 @@ class InfraccionAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $infraccion = Infracciones::find($id);
+        $infraccion->delete();
+        return redirect()->route('ListaAdminInfraccion')->with('success', 'Infracción eliminada con éxito');
     }
 }

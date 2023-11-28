@@ -23,5 +23,7 @@
         </div>
     </div>
     {{-- Navigator --}}
-    {{ $infracciones->links('pagination::bootstrap-5') }}
+    <div class="container" id="nav">
+        {{ $infracciones->links('pagination::bootstrap-5') }}
+    </div>
 @endsection

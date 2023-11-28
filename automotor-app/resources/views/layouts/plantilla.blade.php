@@ -25,7 +25,7 @@
 
 <body>
     {{-- Barra de navegación --}}
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg" style="background-color: #f3f4f6;">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
                 aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,14 +47,33 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('ListaInfraccion') }}">Infraciones</a>
                     </li>
-                    <li class="nav-item"> 
-                        <a class="btn btn-outline-light" href="{{ route('dashboard') }}">Iniciar sesión</a>
+                    <li class="nav-item">
+                        @if (!Route::is('Home'))
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="buscar" placeholder="Buscar"
+                                    aria-label="Buscar">
+                                <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                            </form>
+                        @endif
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="buscar" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-light" type="submit">Buscar</button>
-                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @if (Route::has('login'))
+                            @auth
+                                <a class="btn btn-outline-dark" href="{{ url('/dashboard') }}">
+                                    Panel de administrador</a>
+                            @else
+                                <a class="btn btn-outline-dark" href="{{ route('login') }}">
+                                    Ingresar</a>
+                                @if (Route::has('register'))
+                                    <a class="btn btn-dark" href="{{ route('register') }}">
+                                        Registrarse</a>
+                                @endif
+                            @endauth
+                        @endif
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
