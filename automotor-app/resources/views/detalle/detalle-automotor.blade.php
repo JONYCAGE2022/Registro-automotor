@@ -8,19 +8,23 @@
             <table class="table table-striped">
                 <tr>
                     <th>Nombre y apellido del titular</th>
-                    <td>{{ $detalleAuto->nombre_titular }}</td>
+                    <td>{{ $detalleAuto ? $detalleAuto->nombre_titular : '' }}</td>
                 </tr>
                 <tr>
                     <th>Patente</th>
-                    <td>{{ $detalleAuto->patente }}</td>
+                    <td>{{ $detalleAuto ? $detalleAuto->patente : ''}}</td>
                 </tr>
                 <tr>
                     <th>Marca</th>
-                    <td>{{ $detalleAuto->marca }}</td>
+                    <td>{{ $detalleAuto ? $detalleAuto->marca : ''}}</td>
                 </tr>
                 <tr>
                     <th>Modelo</th>
-                    <td>{{ $detalleAuto->modelo }}</td>
+                    <td>{{ $detalleAuto ? $detalleAuto->modelo : ''}}</td>
+                </tr>
+                <tr>
+                    <th>Tipo</th>
+                    <td>{{ $detalleAuto ? $detalleAuto->tipo : '' }}</td>
                 </tr>
             </table>
         </div>

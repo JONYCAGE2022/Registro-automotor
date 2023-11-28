@@ -47,17 +47,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('ListaInfraccion') }}">Infraciones</a>
                     </li>
-                    <li class="nav-item">
-                        @if (!Route::is('Home'))
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="buscar" placeholder="Buscar"
-                                    aria-label="Buscar">
-                                <button class="btn btn-outline-dark" type="submit">Buscar</button>
-                            </form>
-                        @endif
-                    </li>
                 </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0">
+                <ul class="navbar-nav d-flex">
                     <li class="nav-item">
                         @if (Route::has('login'))
                             @auth

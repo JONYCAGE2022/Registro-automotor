@@ -16,6 +16,13 @@ class InfraccionController extends Controller
         return view('lista.lista-infraccion',['infracciones' => $infracciones]);
     }
 
+    public function buscar (Request $request)
+    {
+        $buscar = $request->buscar;
+        $infracciones = Infracciones::join('autos','autos.id','=','infracciones.auto_id') ->selectRaw("infracciones.*, CONCAT(autos.tipo,' ', autos.patente) as tipo_patente_autos")->where('patente','like','%'.$buscar.'%')->orderBy("created_at","desc") ->paginate(10);
+        return view('lista.lista-infraccion',['infracciones' => $infracciones]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -17,6 +17,13 @@ class AutoController extends Controller
         return view('lista.lista-automotor',['autos' => $autos]);
     }
 
+    public function buscar (Request $request)
+    {
+        $buscar = $request->buscar;
+        $autos = Auto::join('titulares','titulares.id','=','autos.titular_id')->selectRaw("autos.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular")->where('patente','like','%'.$buscar.'%')->orderBy("created_at","desc")->paginate(10);
+        return view('lista.lista-automotor',['autos' => $autos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -4,6 +4,12 @@
     <h1>Lista infracción</h1>
     <div class="container d-flex justify-content-center">
         <div class="mx-auto">
+            <form class="d-flex" role="search" action="{{ route('BuscarInfraccion') }}" method="GET">
+                <input class="form-control me-2" type="text" placeholder="Buscar por patente" aria-label="Buscar" name="buscar"
+                    value="{{ request('buscar') }}">
+                <button class="btn btn-outline-dark" type="submit"
+                    nclick="window.location.href= '{{ route('ListaInfraccion') }}'">Buscar</button>
+            </form>
             <table class="table">
                 <thead>
                     <tr>

@@ -35,6 +35,8 @@ Route::controller(AutoController::class)->group(function () {
     Route::get('/automotores', [AutoController::class, 'Index'])->name('ListaAutomotor');
     //Detalle del automotor
     Route::get('/automotores/{id}', [AutoController::class, 'show'])->name('DetalleAutomotor');
+    //Buscar
+    Route::get('/automotores/buscar/resultado', [AutoController::class, 'buscar'])->name('BuscarAutomotor');
 });
 
 //Automotor usuario autentificado
@@ -61,6 +63,8 @@ Route::controller(TitularController::class)->group(function () {
     Route::get('/titulares', [TitularController::class, 'Index'])->name('ListaTitular');
     //Detalle del titular
     Route::get('/titulares/{id}', [TitularController::class, 'show'])->name('DetalleTitular');
+    //Buscar
+    Route::get('/titulares/buscar/resultado', [TitularController::class, 'buscar'])->name('BuscarTitular');
 });
 
 //Titulares usuario autentificado
@@ -87,6 +91,8 @@ Route::controller(TitularController::class)->group(function () {
     Route::get('/infraccion', [InfraccionController::class, 'Index'])->name('ListaInfraccion');
     //Detalle de infraccion
     Route::get('/infraccion/{id}', [InfraccionController::class, 'show'])->name('DetalleInfraccion');
+    //Buscar
+    Route::get('/infraccion/buscar/resultado', [InfraccionController::class, 'buscar'])->name('BuscarInfraccion');
 });
 
 //Infracciones usuario autentificado

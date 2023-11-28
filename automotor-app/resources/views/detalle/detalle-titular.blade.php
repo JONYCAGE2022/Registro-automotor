@@ -8,15 +8,15 @@
             <table class="table table-striped">
                 <tr>
                     <th>Nombre y apellido del titular</th>
-                    <td>{{ $detalleTitular->nombre_titular }}</td>
+                    <td>{{ $detalleTitular ? $detalleTitular->nombre_titular : ''}}</td>
                 </tr>
                 <tr>
                     <th>DNI</th>
-                    <td>{{ $detalleTitular->dni }}</td>
+                    <td>{{ $detalleTitular ? $detalleTitular->dni : ''}}</td>
                 </tr>
                 <tr>
                     <th>Domicilio</th>
-                    <td>{{ $detalleTitular->domicilio }}</td>
+                    <td>{{ $detalleTitular ? $detalleTitular->domicilio : ''}}</td>
                 </tr>
             </table>
         </div>

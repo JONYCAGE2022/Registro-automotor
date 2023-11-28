@@ -8,19 +8,19 @@
             <table class="table table-striped">
                 <tr>
                     <th>Auto: tipo/patente</th>
-                    <td>{{ $detalleInfraccion->tipo_patente_autos }}</td>
+                    <td>{{ $detalleInfraccion ? $detalleInfraccion->tipo_patente_autos : ''}}</td>
                 </tr>
                 <tr>
                     <th>Fecha</th>
-                    <td>{{ $detalleInfraccion->fecha }}</td>
+                    <td>{{ $detalleInfraccion ? $detalleInfraccion->fecha : ''}}</td>
                 </tr>
                 <tr>
                     <th>Descripción</th>
-                    <td>{{ $detalleInfraccion->desripcion }}</td>
+                    <td>{{ $detalleInfraccion ? $detalleInfraccion->desripcion : ''}}</td>
                 </tr>
                 <tr>
                     <th>Tipo</th>
-                    <td>{{ $detalleInfraccion->tipo }}</td>
+                    <td>{{ $detalleInfraccion ? $detalleInfraccion->tipo : ''}}</td>
                 </tr>
             </table>
         </div>

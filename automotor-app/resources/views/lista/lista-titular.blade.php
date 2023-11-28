@@ -5,6 +5,12 @@
 
     <div class="container d-flex justify-content-center">
         <div class="mx-auto">
+            <form class="d-flex" role="search" action="{{ route('BuscarTitular') }}" method="GET">
+                <input class="form-control me-2" type="text" placeholder="Buscar por DNI" aria-label="Buscar" name="buscar"
+                    value="{{ request('buscar') }}">
+                <button class="btn btn-outline-dark" type="submit"
+                    nclick="window.location.href= '{{ route('ListaTitular') }}'">Buscar</button>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
