@@ -17,6 +17,13 @@ class AutoAdminController extends Controller
         return view('admin.admin-lista-automotor',['autos' => $autos]);
     }
 
+    public function buscar(Request $request) 
+    {
+        $buscar = $request->buscar;
+        $autos = Auto::join('titulares','titulares.id','=','autos.titular_id')->selectRaw("autos.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular")->where('patente','like','%'.$buscar.'%')->orderBy("created_at","desc")->paginate(10);
+        return view('admin.admin-lista-automotor',['autos' => $autos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -39,7 +46,7 @@ class AutoAdminController extends Controller
             'patente' => $request->patente,
             'tipo' => $request->tipo
         ]);
-        return redirect()->route('ListaAdminAutomotor');
+        return redirect()->route('ListaAdminAutomotor')->with('success', 'Automotor agregado con éxito');;
     }
 
     /**

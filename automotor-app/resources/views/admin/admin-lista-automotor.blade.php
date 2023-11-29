@@ -3,18 +3,27 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Automotores') }}
         </h2>
+
+        <form action="{{ route('BuscarAdminAutomotor') }}" method="GET">
+            <div class="flex justify-star">
+                <input
+                    class="w-60 border-2 border-gray-300 py-2 px-2 rounded-md text-sm focus:outline-none focus:border-blue-500"
+                    type="text" placeholder="Buscar patente" value="{{ request('buscar') }}" name="buscar">
+                <button type="submit" class="bg-black hover:bg-black-600 focus:bg-black-400 active:bg-black-700 text-white font-bold py-1 px-2 m-1 rounded" onclick="window.location.href= '{{ route('ListaAdminAutomotor') }}'">
+                    Buscar
+                </button>
+            </div>
+        </form>
+
     </x-slot>
 
-    {{--     <div class="container">
-        <!-- Verificar si existe el mensaje de éxito en la sesión -->
-        @if (session('success'))
-        <!-- Mostrar el mensaje de éxito en un elemento div con una clase de Bootstrap -->
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        <!-- Borrar el mensaje de éxito de la sesión -->
-        {{ session()->forget('success') }}
-        @endif --}}
+    <script>
+        var mensaje = "{{ session('success') }}";
+        if (mensaje !==''){
+            alert(mensaje);
+        }
+    </script>
+
     <div class="py-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <button type="submit"
             class="bg-green-500 hover:bg-green-600 focus:bg-green-400 active:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded"
@@ -30,7 +39,7 @@
                     <h1 class="font-semibold text-lg text-gray-800 leading-tight">
                         {{ __('Lista automotor') }}
                     </h1>
-                    <div class="container mx-auto">
+                    <div class="container mx-auto overflow-x-auto">
                         <table class="table-auto border border-gray-300 shadow-lg">
                             <thead>
                                 <tr class="bg-gray-100">

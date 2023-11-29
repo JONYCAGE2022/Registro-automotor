@@ -16,6 +16,14 @@ class TitularAdminController extends Controller
         return view('admin.admin-lista-titular',['titulares' => $titulares]);
     }
 
+
+    public function buscar (Request $request)
+    {
+        $buscar = $request->buscar;
+        $titulares = Titulares::selectRaw("titulares.*, CONCAT(titulares.nombre,' ', titulares.apellido) as nombre_titular") ->orderBy("created_at","desc")->where('dni','like','%'.$buscar.'%')->paginate(10);
+        return view('admin.admin-lista-titular',['titulares' => $titulares]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

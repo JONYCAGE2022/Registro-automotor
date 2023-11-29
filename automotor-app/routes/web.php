@@ -55,6 +55,8 @@ Route::controller(AutoAdminController::class)->group(function () {
     Route::get('dashboard/automotores/nuevo/formulario', [AutoAdminController::class, 'create'])->name('FormularioAutomotor');
     //Guardar nuevo registro
     Route::post('dashboard/automotores/guardar/formulario', [AutoAdminController::class, 'store'])->name('GuardarNuevoAutomotor');
+    //Buscar automotor
+    Route::get('dashboard/automotores/buscar/resultado', [AutoAdminController::class, 'buscar'])->name('BuscarAdminAutomotor');
 });
 
 //Titulares sin que el usuario se autentique
@@ -83,6 +85,8 @@ Route::controller(TitularAdminController::class)->group(function () {
     Route::get('dashboard/titulares/nuevo/formulario', [TitularAdminController::class, 'create'])->name('FormularioTitular');
     //Guardar nuevo registro
     Route::post('dashboard/titulares/guardar/formulario', [TitularAdminController::class, 'store'])->name('GuardarNuevoTitular');
+    //Buscar automotor
+    Route::get('dashboard/titulares/buscar/resultado', [TitularAdminController::class, 'buscar'])->name('BuscarAdmintitular');
 });
 
 //Infracciones
@@ -107,6 +111,8 @@ Route::controller(TitularAdminController::class)->group(function () {
     Route::get('dashboard/infraccion/nuevo/formulario', [InfraccionAdminController::class, 'create'])->name('FormularioInfraccion');
     //Gurdar nuevo registro
     Route::post('dashboard/infraccion/guardar/formulario', [InfraccionAdminController::class, 'store'])->name('GuardarNuevaInfraccion');
+    //Buscar automotor
+    Route::get('dashboard/infraccion/buscar/resultado', [InfraccionAdminController::class, 'buscar'])->name('BuscarAdminInfraccion');
 });
 
 //Autenticación
