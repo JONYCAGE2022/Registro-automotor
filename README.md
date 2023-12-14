@@ -15,5 +15,6 @@ como ultimo detalle, funciona de manera responsiva, es decir que se maneja para 
 ![Captura de pantalla 2023-11-29 025945](https://github.com/JONYCAGE2022/Registro-automotor/assets/112737912/0e310cc4-9402-4458-95f7-99eef84c50fe)
 ![Captura de pantalla 2023-11-29 030042](https://github.com/JONYCAGE2022/Registro-automotor/assets/112737912/de0b115b-0596-40da-94f1-974ee4ea014e)
 ![Captura de pantalla 2023-11-29 030124](https://github.com/JONYCAGE2022/Registro-automotor/assets/112737912/b53b1223-2acb-4af8-90d3-a3c1ad9aadf9)
+
 Actualización: se esta añadiendo la sección de registrar automotor mediante un pago (MercadoPago)
 ![image](https://github.com/JONYCAGE2022/Registro-automotor/assets/112737912/ab0d0db1-61c7-4a29-8a0f-e9832b6c3a17)
