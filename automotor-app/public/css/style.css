@@ -7,3 +7,8 @@ h1 {
 #nav {
     margin-bottom: 100px; /* Ajusta el valor según sea necesario */
 }
+
+/* Centrar el boton de volver en registrar automotor */
+.centrar {
+    margin-top: 20px;
+}

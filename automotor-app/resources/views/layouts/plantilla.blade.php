@@ -42,6 +42,9 @@
                         <a class="nav-link" href="{{ route('ListaAutomotor') }}">Automotores</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('RegistrarAutomotor') }}">Registrar automotor</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('ListaTitular') }}">Titulares</a>
                     </li>
                     <li class="nav-item">

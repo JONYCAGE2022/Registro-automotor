@@ -35,6 +35,8 @@ Route::controller(AutoController::class)->group(function () {
     Route::get('/automotores', [AutoController::class, 'Index'])->name('ListaAutomotor');
     //Detalle del automotor
     Route::get('/automotores/{id}', [AutoController::class, 'show'])->name('DetalleAutomotor');
+    //Registrar nuevo vehiculo
+    Route::get('/automotores/registra/nuevo', [AutoController::class, 'registrar'])->name('RegistrarAutomotor');
     //Buscar
     Route::get('/automotores/buscar/resultado', [AutoController::class, 'buscar'])->name('BuscarAutomotor');
 });

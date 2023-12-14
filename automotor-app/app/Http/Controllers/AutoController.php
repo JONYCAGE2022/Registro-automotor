@@ -24,6 +24,10 @@ class AutoController extends Controller
         return view('lista.lista-automotor',['autos' => $autos]);
     }
 
+    public function registrar () {
+        return view('pagos.automotor');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
